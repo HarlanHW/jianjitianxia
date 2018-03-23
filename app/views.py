@@ -1,5 +1,6 @@
 from django.shortcuts import render
 
+
 # 主页
 def home(request):
     return render(request, "index.html")
@@ -12,5 +13,13 @@ def registe(request):
 
 # 登陆功能
 def login(request):
-    return 1
+    ctx = {}
+    if request.POST:
+        name = request.POST['email']
+        password = request.POST['password']
+        print(name)
+        print(password)
+        return render(request,"index.html")
+    else:
+        return render(request,"login.html")
 
