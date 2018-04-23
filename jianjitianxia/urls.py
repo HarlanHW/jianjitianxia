@@ -23,4 +23,5 @@ urlpatterns = [
     url('^index',view.home),
     url('admin/', admin.site.urls),
     url('^login',view.login),
+    url('^sign_up',view.sign_up),
 ]
