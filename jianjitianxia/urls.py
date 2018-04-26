@@ -19,9 +19,10 @@ from django.conf.urls import url
 from app import views as view
 
 urlpatterns = [
-    url(r'^$',view.home),
-    url('^index',view.home),
+    url(r'^$',view.index),
+    url('^index',view.index),
+    url('^home',view.home),
     url('admin/', admin.site.urls),
-    url('^login',view.login),
+    url('^sign_in',view.sign_in),
     url('^sign_up',view.sign_up),
 ]
