@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 # 用户基本信息表
 # 包含用户注册的基本信息
 class user(models.Model):
+    user_user = models.OneToOneField(User, unique=True, on_delete=models.CASCADE)
     user_id = models.CharField(max_length=8,primary_key=True) #用户id，主键长度为8
     user_name = models.CharField(max_length=16) #用户名，限制16个字符
     user_password = models.CharField(max_length=16) #密码

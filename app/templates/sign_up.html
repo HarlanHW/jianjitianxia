@@ -6,13 +6,20 @@
 <body>
     <form action="sign_up" method="POST">
         {% csrf_token %}
-        <input type="text" name="name">
-        <input type="text" name="email">
-        <input type="password" name="password1">
-        <input type="password" name="password2">
-        <input type="text" name="sex">
-        <input type="text" name="phone">
-        <input type="submit" value="Submit">
+        用户注册:<br><br>
+        姓名:<br>
+        <input type="text" name="name"><br>
+        email:<br>
+        <input type="text" name="email"><br>
+        密码:<br>
+        <input type="password" name="password1"><br>
+        再次输入密码:<br>
+        <input type="password" name="password2"><br>
+        性别: <br>
+        <input type="text" name="sex"><br>
+        电话:<br>
+        <input type="text" name="phone"><br><br>
+        <input type="submit" value="注册">
     </form>
 </body>
 </html>

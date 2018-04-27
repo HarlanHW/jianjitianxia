@@ -10,12 +10,16 @@ from django.utils.timezone import now,timedelta
 from app import models
 from django.db.models import Q
 import time
-# 主页
-def home(request):
-    return render(request, "home.html")
+
 
 def index(request):
     return render(request, "index.html")
+
+# 信息页面
+#@login_required(login_url='sign_in.html')#判断是否登录，若没有登录则跳转到登录界面
+def home(request):
+
+    return render(request, "home.html")
 
 # 登陆功能
 def sign_in(request):
@@ -39,20 +43,14 @@ def sign_up(request):
         password2 = request.POST['password2']
         sex = request.POST['sex']
         phone = request.POST['phone']
-        if password1==password2:#若信息无误，则创建成功，并跳转到登录界面
-            print(username)
-            print(email)
-            print(password1)
-            print(password2)
-            print(sex)
-            print(phone)
-            new_user =models.user.objects.create(user_name=username,user_password=password1,
-                                                 user_phone=phone,user_sex=sex,user_email=email)
 
+        if password1==password2:#若信息无误，则创建成功，并跳转到登录界面
+            id=User.objects.all().count()+1;
+            user_User = User.objects.create_user(username=username, email=email, password=password1)
+            models.user.objects.create(user_id=id,user_user=user_User,user_name=username,user_phone=phone,
+                                       user_sex=sex,user_email=email)
             return HttpResponseRedirect('sign_in')
         else:
-            return HttpResponseRedirect('home')
+            return render(request,'sign_up.html')
     else:
-        return render(request,'sign_up.html')
-
-#显示主页面
+        return render(request, 'sign_up.html')
