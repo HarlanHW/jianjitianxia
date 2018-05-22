@@ -25,4 +25,5 @@ urlpatterns = [
     url('admin/', admin.site.urls),
     url('^sign_in',view.sign_in),
     url('^sign_up',view.sign_up),
+    url('^publish',view.publish),
 ]

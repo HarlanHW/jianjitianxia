@@ -36,15 +36,15 @@ class task(models.Model):
 #任务状态
 class task_status(models.Model):
     task_status_id = models.CharField(max_length=8,primary_key=True)
-    task_status_is_begin = models.CharField(max_length=1)
-    task_status_is_end = models.CharField(max_length=1)
-    task_status_is_apply = models.CharField(max_length=1)
-    task_status_is_agree = models.CharField(max_length=1)
+    task_status_is_begin = models.CharField(max_length=1,default='0')
+    task_status_is_end = models.CharField(max_length=1,default='0')
+    task_status_is_apply = models.CharField(max_length=1,default='0')
+    task_status_is_agree = models.CharField(max_length=1,default='0')
     task_status_publish_time = models.DateTimeField()
-    task_status_begin_time = models.DateTimeField()
-    task_status_finish_time = models.DateTimeField()
-    task_status_apply_time = models.DateTimeField()
-    task_status_agree_time = models.DateTimeField()
+    task_status_begin_time = models.DateTimeField(null=True)
+    task_status_finish_time = models.DateTimeField(null=True)
+    task_status_apply_time = models.DateTimeField(null=True)
+    task_status_agree_time = models.DateTimeField(null=True)
 
 #招聘信息
 class employ(models.Model):

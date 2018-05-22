@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>发布信息</title>
+</head>
+<body>
+     发布任务:<br><br>
+     用户姓名:{{ user.user_name }}
+    <form action="publish" method="POST">
+        {% csrf_token %}
+        标题：<br>
+        <input type="text" name="title"><br>
+        报酬:<br>
+        <input type="text" name="award"><br>
+        任务详情:<br>
+        <input type="text" name="info"><br>
+        <input type="submit" value="提交">
+    </form>
+</body>
+</html>
